@@ -1,0 +1,70 @@
+{
+    "schema_version": "1.0",
+    "project": {
+        "project_name": "Niladittya Integration Test",
+        "purpose": null,
+        "category": null,
+        "description": null,
+        "creative_variations": 1
+    },
+    "placements": [
+        {
+            "platform": "instagram",
+            "placement": "feed_square",
+            "dimension_id": "instagram.feed_square",
+            "width": 1080,
+            "height": 1080,
+            "aspect_ratio": "1:1",
+            "formats": [
+                "PNG",
+                "JPEG"
+            ]
+        }
+    ],
+    "audience": {
+        "age_group": [],
+        "gender_preference": null,
+        "locations": [],
+        "interests": [],
+        "customer_type": null,
+        "description": null
+    },
+    "creative_direction": {
+        "visual_style": "Modern",
+        "preferred_colors": [],
+        "avoid_colors": [],
+        "mood": null,
+        "background_preference": null,
+        "composition_preference": null,
+        "reference_description": null
+    },
+    "advertisement_content": {
+        "headline": null,
+        "subheadline": null,
+        "description": null,
+        "slogan": null,
+        "tagline": null,
+        "call_to_action": null,
+        "price": null,
+        "offer": null,
+        "promo_code": null,
+        "disclaimer": null,
+        "contact_information": null,
+        "website": null,
+        "additional_text_instructions": null
+    },
+    "brand": {
+        "logo_required": false,
+        "logo_path": null,
+        "brand_name": null,
+        "brand_guidelines": null,
+        "font_preferences": [],
+        "reference_images": []
+    },
+    "additional_instructions": [],
+    "validation": {
+        "is_complete": true,
+        "missing_fields": [],
+        "confirmed_by_user": true
+    }
+}

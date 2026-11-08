@@ -1,0 +1,89 @@
+{
+    "schema_version": "1.0",
+    "project": {
+        "project_name": "Smart Watch",
+        "purpose": "Launching New Product",
+        "category": null,
+        "description": null,
+        "creative_variations": 1
+    },
+    "placements": [
+        {
+            "platform": "instagram",
+            "placement": "post",
+            "dimension_id": "instagram.feed_square",
+            "width": 1080,
+            "height": 1080,
+            "aspect_ratio": "1:1",
+            "formats": [
+                "PNG",
+                "JPEG"
+            ]
+        }
+    ],
+    "audience": {
+        "age_group": [
+            "10-20"
+        ],
+        "gender_preference": "M and F",
+        "locations": [
+            "India"
+        ],
+        "interests": [],
+        "customer_type": null,
+        "description": null
+    },
+    "creative_direction": {
+        "visual_style": "Premium",
+        "preferred_colors": [
+            "Golden",
+            "Black"
+        ],
+        "avoid_colors": [],
+        "mood": "sophisticated",
+        "background_preference": null,
+        "composition_preference": null,
+        "reference_description": null
+    },
+    "advertisement_content": {
+        "headline": null,
+        "subheadline": null,
+        "description": null,
+        "slogan": null,
+        "tagline": null,
+        "call_to_action": null,
+        "price": {
+            "text": "Price 2999",
+            "source": "user",
+            "must_preserve": true,
+            "confirmed": false
+        },
+        "offer": {
+            "text": "Offers 30% off",
+            "source": "user",
+            "must_preserve": true,
+            "confirmed": false
+        },
+        "promo_code": null,
+        "disclaimer": null,
+        "contact_information": null,
+        "website": null,
+        "additional_text_instructions": null
+    },
+    "brand": {
+        "logo_required": true,
+        "logo_path": "storage/d5398b79-b7c3-45c4-b614-ab713729838b/asset/brand_logo.png",
+        "brand_name": null,
+        "brand_guidelines": null,
+        "font_preferences": [],
+        "reference_images": []
+    },
+    "additional_instructions": [
+        "No"
+    ],
+    "validation": {
+        "is_complete": true,
+        "missing_fields": [],
+        "confirmed_by_user": true
+    }
+}

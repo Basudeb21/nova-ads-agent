@@ -1,0 +1,422 @@
+2026-11-08 16:07:49 | INFO     | nova.test | Configuration and logger working successfully
+2026-11-08 16:12:05 | ERROR    | nova.database | MySQL connection failed.
+Traceback (most recent call last):
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 154, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3303, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 445, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1340, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 166, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 174, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 932, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 166, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 928, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\engine\create.py", line 645, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 869, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\connections.py", line 373, in __init__
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\connections.py", line 702, in connect
+    self._request_authentication()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\connections.py", line 1063, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\_auth.py", line 256, in caching_sha2_password_auth
+    return _roundtrip(conn, conn.password + b"\0")
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\_auth.py", line 119, in _roundtrip
+    pkt = conn._read_packet()
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\connections.py", line 810, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\err.py", line 154, in raise_mysql_exception
+    raise errorclass(errno, errval, sqlstate=sqlstate)
+pymysql.err.OperationalError: (1045, "Access denied for user 'YOUR_USERNAME'@'localhost' (using password: YES)")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\database\connection.py", line 37, in test_database_connection
+    with engine.connect() as connection:
+         ~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3279, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 156, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2436, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 154, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 3303, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 445, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 1340, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 713, in checkout
+    rec = pool._do_get()
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 176, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 166, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\impl.py", line 174, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 386, in _create_connection
+    return _ConnectionRecord(self)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 675, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 932, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 166, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\pool\base.py", line 928, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\engine\create.py", line 645, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 869, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\connections.py", line 373, in __init__
+    self.connect()
+    ~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\connections.py", line 702, in connect
+    self._request_authentication()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\connections.py", line 1063, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\_auth.py", line 256, in caching_sha2_password_auth
+    return _roundtrip(conn, conn.password + b"\0")
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\_auth.py", line 119, in _roundtrip
+    pkt = conn._read_packet()
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\connections.py", line 810, in _read_packet
+    packet.raise_for_error()
+    ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pymysql\err.py", line 154, in raise_mysql_exception
+    raise errorclass(errno, errval, sqlstate=sqlstate)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1045, "Access denied for user 'YOUR_USERNAME'@'localhost' (using password: YES)")
+(Background on this error at: https://sqlalche.me/e/21/e3q8)
+2026-11-08 16:13:23 | INFO     | nova.database | MySQL connection successful.
+2026-11-08 16:13:23 | WARNING  | nova.repository.agent | Active agent not found: NOVA
+2026-11-08 16:16:07 | INFO     | nova.database | MySQL connection successful.
+2026-11-08 16:16:07 | INFO     | nova.repository.agent | Agent loaded: 1001
+2026-11-08 16:16:07 | INFO     | nova.test | NOVA initialization test successful.
+2026-11-08 16:19:47 | INFO     | nova.repository.agent | Agent loaded: 1001
+2026-11-08 16:19:47 | INFO     | nova.agent.1001 | Niladittya is initializing as Workflow Orchestrator.
+2026-11-08 16:19:47 | INFO     | nova.agent.1001 | Niladittya initialized successfully.
+2026-11-08 16:19:47 | INFO     | nova.initialization | Orchestrator initialization test successful.
+2026-11-08 16:22:49 | INFO     | nova.repository.agent | Agent loaded: 1001
+2026-11-08 16:22:49 | INFO     | nova.agent.1001 | Niladittya is initializing as Workflow Orchestrator.
+2026-11-08 16:22:49 | INFO     | nova.agent.1001 | Niladittya initialized successfully.
+2026-11-08 16:22:49 | INFO     | nova.storage.watcher | Input watcher started: D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\storage\input
+2026-11-08 16:23:39 | INFO     | nova.storage.watcher | New image detected: watch.png
+2026-11-08 16:23:41 | INFO     | nova.storage.watcher | Image upload completed: watch.png | Size: 71565 bytes
+2026-11-08 16:24:13 | INFO     | nova.storage.watcher | Input watcher stopped.
+2026-11-08 16:45:56 | INFO     | nova.repository.agent_execution | Agent execution started | Agent: 1001 | Execution: 4d92a51a-f826-41bc-88d5-e4759b2f13d3
+2026-11-08 16:45:57 | INFO     | nova.repository.agent_execution | Agent execution finished | Agent: 1001 | Execution: 4d92a51a-f826-41bc-88d5-e4759b2f13d3 | Status: SUCCESS | Duration: 500 ms
+2026-11-08 16:48:06 | INFO     | nova.repository.agent_execution | Agent execution started | Agent: 1001 | Execution: b0320863-c3e4-4bb2-9f02-e9b0a724cb12
+2026-11-08 16:48:07 | INFO     | nova.repository.agent_execution | Agent execution finished | Agent: 1001 | Execution: b0320863-c3e4-4bb2-9f02-e9b0a724cb12 | Status: SUCCESS | Duration: 500 ms
+2026-11-08 16:49:48 | INFO     | nova.repository.agent | Agent loaded: 1001
+2026-11-08 16:49:48 | INFO     | nova.repository.agent_execution | Agent execution started | Agent: 1001 | Execution: 249853b9-54f8-49d2-9dfa-cf843fc28009
+2026-11-08 16:49:48 | INFO     | nova.agent.1001 | Initializing agent: Niladittya
+2026-11-08 16:49:48 | INFO     | nova.agent.1001 | Niladittya is initializing as Workflow Orchestrator.
+2026-11-08 16:49:48 | INFO     | nova.repository.agent_execution | Agent execution finished | Agent: 1001 | Execution: 249853b9-54f8-49d2-9dfa-cf843fc28009 | Status: SUCCESS | Duration: 7 ms
+2026-11-08 16:49:48 | INFO     | nova.agent.1001 | Niladittya initialized successfully.
+2026-11-08 16:49:48 | INFO     | nova.initialization | Orchestrator initialization test successful.
+2026-11-08 16:59:41 | INFO     | nova.repository.agent | Agent loaded: 1010
+2026-11-08 16:59:41 | INFO     | nova.repository.agent_execution | Agent execution started | Agent: 1010 | Execution: 653b223a-1170-430e-9a53-5ed4e929438f
+2026-11-08 16:59:41 | INFO     | nova.agent.1010 | Initializing agent: Riya
+2026-11-08 16:59:41 | INFO     | nova.agent.1010 | Riya is initializing as Requirements Analysis Agent.
+2026-11-08 16:59:41 | INFO     | nova.repository.agent_execution | Agent execution finished | Agent: 1010 | Execution: 653b223a-1170-430e-9a53-5ed4e929438f | Status: SUCCESS | Duration: 36 ms
+2026-11-08 16:59:41 | INFO     | nova.agent.1010 | Riya initialized successfully.
+2026-11-08 21:50:41 | INFO     | nova.main | NOVA ADS STUDIO starting...
+2026-11-08 21:50:41 | INFO     | nova.repository.agent_execution | Agent execution started | Agent: 1001 | Execution: 457695f7-3973-42a4-9070-88488dd62a8b
+2026-11-08 21:50:41 | INFO     | nova.agent.1001 | Initializing agent: Niladittya
+2026-11-08 21:50:41 | INFO     | nova.agent.1001 | Niladittya is initializing as Workflow Orchestrator.
+2026-11-08 21:50:41 | INFO     | nova.repository.agent_execution | Agent execution finished | Agent: 1001 | Execution: 457695f7-3973-42a4-9070-88488dd62a8b | Status: SUCCESS | Duration: 8 ms
+2026-11-08 21:50:41 | INFO     | nova.agent.1001 | Niladittya initialized successfully.
+2026-11-08 21:50:41 | INFO     | nova.intake.coordinator | Intake coordinator initialized.
+2026-11-08 21:50:41 | INFO     | nova.storage.watcher | Input watcher started: D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\storage\input
+2026-11-08 21:50:41 | INFO     | nova.main | NOVA ADS STUDIO is ready.
+2026-11-08 21:50:54 | INFO     | nova.storage.watcher | New image detected: watch.png
+2026-11-08 21:50:56 | INFO     | nova.storage.watcher | Image upload completed: watch.png | Size: 71565 bytes
+2026-11-08 21:50:56 | INFO     | nova.intake.coordinator | Starting Riya intake for: watch.png
+2026-11-08 21:50:56 | INFO     | nova.repository.agent_execution | Agent execution started | Agent: 1010 | Execution: ea0c8b4e-30f0-414f-8a95-eb481dc9dad7
+2026-11-08 21:50:56 | INFO     | nova.agent.1010 | Initializing agent: Riya
+2026-11-08 21:50:56 | INFO     | nova.agent.1010 | Riya is initializing as Requirements Analysis Agent.
+2026-11-08 21:50:56 | INFO     | nova.repository.agent_execution | Agent execution finished | Agent: 1010 | Execution: ea0c8b4e-30f0-414f-8a95-eb481dc9dad7 | Status: SUCCESS | Duration: 6 ms
+2026-11-08 21:50:56 | INFO     | nova.agent.1010 | Riya initialized successfully.
+2026-11-08 21:50:56 | INFO     | nova.intake.session | Intake session created: fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:50:56 | INFO     | nova.intake.session | Intake session updated: fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:51:40 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-08 21:51:40 | INFO     | nova.intake.question_generator | Question generated successfully: project_name
+2026-11-08 21:51:40 | INFO     | nova.intake.session | Intake session updated: fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:51:40 | INFO     | nova.riya.conversation | Riya generated question project_name for session fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:51:52 | INFO     | nova.intake.session | Intake session updated: fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:52:15 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-08 21:52:15 | INFO     | nova.intake.answer_extractor | Answer extracted: question=project_name status=ANSWERED confidence=1.00
+2026-11-08 21:52:15 | INFO     | nova.intake.answer_applier | Applied 1 extracted requirement fields.
+2026-11-08 21:52:15 | INFO     | nova.intake.session | Intake session updated: fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:52:15 | INFO     | nova.riya.conversation | Riya processed answer for question project_name: ANSWERED
+2026-11-08 21:52:15 | INFO     | nova.intake.session | Intake session updated: fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:52:44 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-08 21:52:44 | INFO     | nova.intake.question_generator | Question generated successfully: campaign_purpose
+2026-11-08 21:52:44 | INFO     | nova.intake.session | Intake session updated: fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:52:44 | INFO     | nova.riya.conversation | Riya generated question campaign_purpose for session fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:53:08 | INFO     | nova.intake.session | Intake session updated: fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:53:32 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-08 21:53:32 | INFO     | nova.intake.answer_extractor | Answer extracted: question=campaign_purpose status=ANSWERED confidence=1.00
+2026-11-08 21:53:32 | INFO     | nova.intake.answer_applier | Applied 1 extracted requirement fields.
+2026-11-08 21:53:32 | INFO     | nova.intake.session | Intake session updated: fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:53:32 | INFO     | nova.riya.conversation | Riya processed answer for question campaign_purpose: ANSWERED
+2026-11-08 21:53:32 | INFO     | nova.intake.session | Intake session updated: fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:54:08 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-08 21:54:08 | INFO     | nova.intake.question_generator | Question generated successfully: target_audience
+2026-11-08 21:54:08 | INFO     | nova.intake.session | Intake session updated: fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:54:08 | INFO     | nova.riya.conversation | Riya generated question target_audience for session fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:54:41 | INFO     | nova.intake.session | Intake session updated: fc4d600b-398e-44cc-b2d0-0cbef52bdb0f
+2026-11-08 21:55:10 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-08 21:55:10 | INFO     | nova.intake.answer_extractor | Answer extracted: question=target_audience status=ANSWERED confidence=0.95
+2026-11-08 21:55:10 | ERROR    | nova.intake.answer_applier | Extracted requirements validation failed.
+Traceback (most recent call last):
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\intake\engine\answer_applier.py", line 34, in apply
+    updated_requirements = ProjectRequirements.model_validate(data)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pydantic\main.py", line 792, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        obj,
+        ^^^^
+    ...<5 lines>...
+        by_name=by_name,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ProjectRequirements
+audience
+  Input should be a valid dictionary or instance of TargetAudience [type=model_type, input_value='Age 15-30, gender M and F, india', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.14/v/model_type
+2026-11-08 21:55:10 | ERROR    | nova.intake.coordinator | Product intake workflow failed.
+Traceback (most recent call last):
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\intake\coordinator.py", line 86, in _handle_future_result
+    future.result()
+    ~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\intake\coordinator.py", line 151, in _start_intake
+    turn = await conversation.submit_answer(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\agents\requirements_analysis\conversation_service.py", line 238, in submit_answer
+    updated_state = IntakeSessionRepository.update_session(
+        session_id,
+        update_session,
+    )
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\services\storage\intake_session_repository.py", line 160, in update_session
+    updater(state)
+    ~~~~~~~^^^^^^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\agents\requirements_analysis\conversation_service.py", line 223, in update_session
+    current_state.requirements = self.answer_applier.apply(
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        current_state.requirements,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        extracted.extracted_values,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\intake\engine\answer_applier.py", line 34, in apply
+    updated_requirements = ProjectRequirements.model_validate(data)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pydantic\main.py", line 792, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        obj,
+        ^^^^
+    ...<5 lines>...
+        by_name=by_name,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ProjectRequirements
+audience
+  Input should be a valid dictionary or instance of TargetAudience [type=model_type, input_value='Age 15-30, gender M and F, india', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.14/v/model_type
+2026-11-09 00:02:53 | INFO     | nova.main | NOVA ADS STUDIO starting...
+2026-11-09 00:02:53 | INFO     | nova.repository.agent_execution | Agent execution started | Agent: 1001 | Execution: 7c23a0d5-fb44-4907-adb1-23f0f7b35ee8
+2026-11-09 00:02:53 | INFO     | nova.agent.1001 | Initializing agent: Niladittya
+2026-11-09 00:02:53 | INFO     | nova.agent.1001 | Niladittya is initializing as Workflow Orchestrator.
+2026-11-09 00:02:53 | INFO     | nova.repository.agent_execution | Agent execution finished | Agent: 1001 | Execution: 7c23a0d5-fb44-4907-adb1-23f0f7b35ee8 | Status: SUCCESS | Duration: 9 ms
+2026-11-09 00:02:53 | INFO     | nova.agent.1001 | Niladittya initialized successfully.
+2026-11-09 00:02:53 | INFO     | nova.intake.coordinator | Intake coordinator initialized.
+2026-11-09 00:02:53 | INFO     | nova.storage.watcher | Input watcher started: D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\storage\input
+2026-11-09 00:02:53 | INFO     | nova.main | NOVA ADS STUDIO is ready.
+2026-11-09 00:03:40 | INFO     | nova.storage.watcher | New image detected: image.png
+2026-11-09 00:03:42 | INFO     | nova.storage.watcher | Image upload completed: image.png | Size: 1839093 bytes
+2026-11-09 00:03:42 | INFO     | nova.repository.agent_execution | Agent execution started | Agent: 1010 | Execution: 61dd7762-8fa4-4d2b-8474-78704238eccf
+2026-11-09 00:03:42 | INFO     | nova.agent.1010 | Initializing agent: Riya
+2026-11-09 00:03:42 | INFO     | nova.agent.1010 | Riya is initializing as Requirements Analysis Agent.
+2026-11-09 00:03:42 | INFO     | nova.repository.agent_execution | Agent execution finished | Agent: 1010 | Execution: 61dd7762-8fa4-4d2b-8474-78704238eccf | Status: SUCCESS | Duration: 8 ms
+2026-11-09 00:03:42 | INFO     | nova.agent.1010 | Riya initialized successfully.
+2026-11-09 00:03:42 | INFO     | nova.intake.session | Intake session created: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:03:42 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:04:25 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-09 00:04:25 | INFO     | nova.intake.question_generator | Question generated successfully: project_name
+2026-11-09 00:04:25 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:04:25 | INFO     | nova.riya.conversation | Riya generated question project_name for session 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:04:48 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:05:16 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-09 00:05:16 | INFO     | nova.intake.answer_extractor | Answer extracted: question=project_name status=ANSWERED confidence=1.00
+2026-11-09 00:05:16 | INFO     | nova.intake.answer_applier | Applied 1 extracted requirement fields.
+2026-11-09 00:05:16 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:05:16 | INFO     | nova.riya.conversation | Riya processed answer for question project_name: ANSWERED
+2026-11-09 00:05:16 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:05:48 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-09 00:05:48 | INFO     | nova.intake.question_generator | Question generated successfully: campaign_purpose
+2026-11-09 00:05:48 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:05:48 | INFO     | nova.riya.conversation | Riya generated question campaign_purpose for session 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:06:14 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:06:40 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-09 00:06:40 | INFO     | nova.intake.answer_extractor | Answer extracted: question=campaign_purpose status=ANSWERED confidence=1.00
+2026-11-09 00:06:40 | INFO     | nova.intake.answer_applier | Applied 1 extracted requirement fields.
+2026-11-09 00:06:40 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:06:40 | INFO     | nova.riya.conversation | Riya processed answer for question campaign_purpose: ANSWERED
+2026-11-09 00:06:40 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:07:14 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-09 00:07:14 | INFO     | nova.intake.question_generator | Question generated successfully: target_audience
+2026-11-09 00:07:14 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:07:14 | INFO     | nova.riya.conversation | Riya generated question target_audience for session 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:07:56 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:08:35 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-09 00:08:35 | INFO     | nova.intake.answer_extractor | Answer extracted: question=target_audience status=ANSWERED confidence=0.95
+2026-11-09 00:08:35 | INFO     | nova.intake.answer_applier | Applied 1 extracted requirement fields.
+2026-11-09 00:08:35 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:08:35 | INFO     | nova.riya.conversation | Riya processed answer for question target_audience: ANSWERED
+2026-11-09 00:08:35 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:09:05 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-09 00:09:05 | INFO     | nova.intake.question_generator | Question generated successfully: placements
+2026-11-09 00:09:05 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:09:05 | INFO     | nova.riya.conversation | Riya generated question placements for session 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:09:26 | INFO     | nova.intake.session | Intake session updated: 6aebdaf5-c962-4222-b1de-b8e94fe108a9
+2026-11-09 00:10:05 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+2026-11-09 00:10:05 | INFO     | nova.intake.answer_extractor | Answer extracted: question=placements status=ANSWERED confidence=0.95
+2026-11-09 00:10:05 | ERROR    | nova.intake.answer_applier | Extracted requirements validation failed.
+Traceback (most recent call last):
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\intake\engine\answer_applier.py", line 43, in apply
+    updated_requirements = ProjectRequirements.model_validate(data)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pydantic\main.py", line 792, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        obj,
+        ^^^^
+    ...<5 lines>...
+        by_name=by_name,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ProjectRequirements
+placements.0
+  Value error, Unknown placement 'feed' for platform 'instagram'. Supported placements: feed_square, feed_portrait, story, reels_cover [type=value_error, input_value={'platform': 'Instagram', 'placement': 'Feed'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.14/v/value_error
+2026-11-09 00:10:05 | ERROR    | nova.intake.coordinator | Product intake workflow failed.
+Traceback (most recent call last):
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\intake\coordinator.py", line 82, in _handle_future_result
+    future.result()
+    ~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 443, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\concurrent\futures\_base.py", line 395, in __get_result
+    raise self._exception
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\intake\coordinator.py", line 126, in _start_intake
+    await self._run_conversation(
+    ...<2 lines>...
+    )
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\intake\coordinator.py", line 203, in _run_conversation
+    turn = await conversation.submit_answer(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+    )
+    ^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\agents\requirements_analysis\conversation_service.py", line 241, in submit_answer
+    updated_state = IntakeSessionRepository.update_session(
+        session_id,
+        update_session,
+    )
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\services\storage\intake_session_repository.py", line 160, in update_session
+    updater(state)
+    ~~~~~~~^^^^^^^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\agents\requirements_analysis\conversation_service.py", line 226, in update_session
+    current_state.requirements = self.answer_applier.apply(
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        current_state.requirements,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        extracted.extracted_values,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\app\intake\engine\answer_applier.py", line 43, in apply
+    updated_requirements = ProjectRequirements.model_validate(data)
+  File "D:\AI-TOOLS\nova-ads-studio\nova-ads-studio\.venv\Lib\site-packages\pydantic\main.py", line 792, in model_validate
+    return cls.__pydantic_validator__.validate_python(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        obj,
+        ^^^^
+    ...<5 lines>...
+        by_name=by_name,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ProjectRequirements
+placements.0
+  Value error, Unknown placement 'feed' for platform 'instagram'. Supported placements: feed_square, feed_portrait, story, reels_cover [type=value_error, input_value={'platform': 'Instagram', 'placement': 'Feed'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.14/v/value_error

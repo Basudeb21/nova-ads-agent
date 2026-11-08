@@ -1,0 +1,197 @@
+{
+    "schema_version": "1.0",
+    "last_updated": "2026-11-08",
+    "platforms": {
+        "instagram": {
+            "display_name": "Instagram",
+            "placements": {
+                "feed_square": {
+                    "display_name": "Feed Square Post",
+                    "width": 1080,
+                    "height": 1080,
+                    "aspect_ratio": "1:1",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                },
+                "feed_portrait": {
+                    "display_name": "Feed Portrait Post",
+                    "width": 1080,
+                    "height": 1350,
+                    "aspect_ratio": "4:5",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                },
+                "story": {
+                    "display_name": "Story",
+                    "width": 1080,
+                    "height": 1920,
+                    "aspect_ratio": "9:16",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                },
+                "reels_cover": {
+                    "display_name": "Reels Cover",
+                    "width": 1080,
+                    "height": 1920,
+                    "aspect_ratio": "9:16",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                }
+            }
+        },
+        "facebook": {
+            "display_name": "Facebook",
+            "placements": {
+                "feed_square": {
+                    "display_name": "Feed Square Post",
+                    "width": 1080,
+                    "height": 1080,
+                    "aspect_ratio": "1:1",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                },
+                "feed_portrait": {
+                    "display_name": "Feed Portrait Post",
+                    "width": 1080,
+                    "height": 1350,
+                    "aspect_ratio": "4:5",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                },
+                "story": {
+                    "display_name": "Story",
+                    "width": 1080,
+                    "height": 1920,
+                    "aspect_ratio": "9:16",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                },
+                "cover": {
+                    "display_name": "Cover Image",
+                    "width": 851,
+                    "height": 315,
+                    "aspect_ratio": "2.7:1",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                }
+            }
+        },
+        "youtube": {
+            "display_name": "YouTube",
+            "placements": {
+                "thumbnail": {
+                    "display_name": "Video Thumbnail",
+                    "width": 1280,
+                    "height": 720,
+                    "aspect_ratio": "16:9",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                },
+                "community_post": {
+                    "display_name": "Community Post",
+                    "width": 1080,
+                    "height": 1080,
+                    "aspect_ratio": "1:1",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                }
+            }
+        },
+        "tiktok": {
+            "display_name": "TikTok",
+            "placements": {
+                "feed": {
+                    "display_name": "Vertical Feed Creative",
+                    "width": 1080,
+                    "height": 1920,
+                    "aspect_ratio": "9:16",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                }
+            }
+        },
+        "linkedin": {
+            "display_name": "LinkedIn",
+            "placements": {
+                "feed_square": {
+                    "display_name": "Feed Square Post",
+                    "width": 1200,
+                    "height": 1200,
+                    "aspect_ratio": "1:1",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                },
+                "feed_landscape": {
+                    "display_name": "Feed Landscape Post",
+                    "width": 1200,
+                    "height": 627,
+                    "aspect_ratio": "1.91:1",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                }
+            }
+        },
+        "website": {
+            "display_name": "Website",
+            "placements": {
+                "banner_landscape": {
+                    "display_name": "Website Landscape Banner",
+                    "width": 1920,
+                    "height": 600,
+                    "aspect_ratio": "3.2:1",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                },
+                "banner_square": {
+                    "display_name": "Website Square Banner",
+                    "width": 1080,
+                    "height": 1080,
+                    "aspect_ratio": "1:1",
+                    "format": [
+                        "PNG",
+                        "JPEG"
+                    ]
+                }
+            }
+        }
+    },
+    "custom_placement": {
+        "enabled": true,
+        "minimum_width": 256,
+        "maximum_width": 4096,
+        "minimum_height": 256,
+        "maximum_height": 4096,
+        "allowed_formats": [
+            "PNG",
+            "JPEG"
+        ]
+    }
+}

@@ -1,0 +1,86 @@
+{
+    "schema_version": "1.0",
+    "project": {
+        "project_name": "Asus",
+        "purpose": "boosting sales",
+        "category": null,
+        "description": null,
+        "creative_variations": 1
+    },
+    "placements": [
+        {
+            "platform": "instagram",
+            "placement": "feed",
+            "dimension_id": "instagram.feed_square",
+            "width": 1080,
+            "height": 1080,
+            "aspect_ratio": "1:1",
+            "formats": [
+                "PNG",
+                "JPEG"
+            ]
+        }
+    ],
+    "audience": {
+        "age_group": [
+            "20-40"
+        ],
+        "gender_preference": "Male",
+        "locations": [
+            "India"
+        ],
+        "interests": [],
+        "customer_type": null,
+        "description": null
+    },
+    "creative_direction": {
+        "visual_style": "modern",
+        "preferred_colors": [],
+        "avoid_colors": [],
+        "mood": "trustworthy",
+        "background_preference": null,
+        "composition_preference": null,
+        "reference_description": null
+    },
+    "advertisement_content": {
+        "headline": null,
+        "subheadline": null,
+        "description": null,
+        "slogan": null,
+        "tagline": null,
+        "call_to_action": null,
+        "price": {
+            "text": "60000",
+            "source": "user",
+            "must_preserve": true,
+            "confirmed": false
+        },
+        "offer": {
+            "text": "Offer 20% Off",
+            "source": "user",
+            "must_preserve": true,
+            "confirmed": false
+        },
+        "promo_code": null,
+        "disclaimer": null,
+        "contact_information": null,
+        "website": null,
+        "additional_text_instructions": null
+    },
+    "brand": {
+        "logo_required": true,
+        "logo_path": "storage/988374a5-3a21-4a8f-bf2c-487be4034ab7/asset/brand_logo.png",
+        "brand_name": null,
+        "brand_guidelines": null,
+        "font_preferences": [],
+        "reference_images": []
+    },
+    "additional_instructions": [
+        "no"
+    ],
+    "validation": {
+        "is_complete": true,
+        "missing_fields": [],
+        "confirmed_by_user": true
+    }
+}
